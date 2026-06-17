@@ -13,7 +13,7 @@ const Header = ({ userData }) => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary px-md-5 bg-success">
             <div className="container-fluid">
-                <Link to={"/"} className="navbar-brand" href="#">kaviosPix</Link>
+                <Link to={"/dashboard"} className="navbar-brand" href="#">kaviosPix</Link>
                 {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

@@ -81,7 +81,7 @@ const AddImageModal = ({ album, setImages }) => {
             setFormData({ file: null, tags: [], person: "" });
         } catch (error) {
             console.error("Error while adding image", error);
-            toast.error("Failed to add image");
+            toast.error(error?.response?.data?.message || "Failed to add image");
         } finally {
             setLoading(false);
         }

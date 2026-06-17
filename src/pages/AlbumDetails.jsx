@@ -95,7 +95,7 @@ const AlbumDetails = () => {
             setActiveFilter("favorite");
         } catch (error) {
             console.error("Error while fetching favorites", error);
-            toast.error("Failed to fetch favorites");
+            toast.error(error?.response?.data?.message || "Failed to fetch favorites");
         }
     }
 

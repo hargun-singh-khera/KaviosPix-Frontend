@@ -70,7 +70,7 @@ const AlbumShareModal = ({ album }) => {
             setSelectedUsers([]);
         } catch (error) {
             console.error("Error while sharing album", error);
-            toast.error("Failed to share album");
+            toast.error(error?.response?.data?.message || "Failed to share album");
         } finally {
             setLoading(false);
         }

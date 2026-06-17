@@ -61,7 +61,7 @@ const AlbumModal = ({ album, setAlbums, setSelectedAlbum }) => {
             }
         } catch (error) {
             console.error("Error while creating album", error);
-            toast.error("Error while creating album");
+            toast.error(error?.response?.data?.message || "Error while creating album");
         } finally {
             setLoading(false);
         }

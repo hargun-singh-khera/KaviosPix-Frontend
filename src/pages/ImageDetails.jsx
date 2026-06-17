@@ -89,7 +89,7 @@ const ImageDetails = () => {
             setCommentText("");
         } catch (error) {
             console.error("Error while posting comment", error);
-            toast.error("Failed to post comment");
+            toast.error(error?.response?.data?.message || "Failed to post comment");
         }
     }
 

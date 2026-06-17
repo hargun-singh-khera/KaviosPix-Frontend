@@ -12,10 +12,12 @@ const Dashboard = () => {
     useEffect(() => {
         (async () => {
             try {
+                console.log("running useEffect")
                 const response = await authServerAxios.get('/user/profile/google');
                 console.log("response of user data", response);
                 setUserData(() => response.data.user);
                 const token = response.data.token;
+                console.log("token", token);
                 localStorage.setItem("token", token);
                 fetchAlbums(token);
             } catch (error) {
@@ -23,6 +25,13 @@ const Dashboard = () => {
             }
         })();
     }, []);
+
+    // fetch(
+    //     "https://kavios-pix-backend-pied.vercel.app/user/profile/google",
+    //     {
+    //         credentials: "include"
+    //     }
+    // ).then(r => r.json()).then(console.log)
 
     // console.log("userData", userData);
     const [albums, setAlbums] = useState([]);
@@ -98,13 +107,14 @@ const Dashboard = () => {
                                 <Link to={`/album/${album._id}`} state={{ userData }} className="card text-decoration-none">
                                     <img src={album?.thumbnail || "https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png?_=20210219185637"} className="card-img-top object-fit-cover w-100" alt="..." style={{ height: "10rem" }} />
                                     <div className="card-body">
-                                        <p className="card-text">{album.name} ({album.imagesCount} items)</p>
+                                        <p className="card-text">{album.name} ({album.imagesCount || 0} items)</p>
                                         <p>{album.description || "No description available"}</p>
-                                        <div className="d-flex gap-2">
+                                        {!album.isShared && <div className="d-flex gap-2">
                                             <button type="button" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleEditAlbum(album) }} className="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#albumModal">Edit Album</button>
                                             <button type="button" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setSelectedAlbum(album) }} className="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#albumShareModal">Share</button>
                                             <button type="button" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleDeleteAlbum(album._id) }} className="btn btn-danger btn-sm">Delete</button>
-                                        </div>
+                                        </div>}
+                                        {album.isShared && <span className="badge bg-info text-dark"> Shared </span>}
                                     </div>
                                 </Link>
                             </div>
