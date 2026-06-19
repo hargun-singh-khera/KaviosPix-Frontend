@@ -13,6 +13,8 @@ const Dashboard = () => {
         (async () => {
             try {
                 console.log("running useEffect")
+                const response = await authServerAxios.get("/debug-cookies");
+                console.log(response.data);
                 const response = await authServerAxios.get('/user/profile/google');
                 console.log("response of user data", response);
                 setUserData(() => response.data.user);
