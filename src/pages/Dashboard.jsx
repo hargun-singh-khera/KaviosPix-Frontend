@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import AlbumModal from '../components/Modals/AlbumModal';
 import AlbumShareModal from '../components/Modals/AlbumShareModal';
 import PlaceholderAlbumCard from '../components/PlaceholderAlbumCard';
+import { APP_NAME } from '../constants';
 
 const Dashboard = () => {
     const [userData, setUserData] = useState(null);
@@ -89,7 +90,7 @@ const Dashboard = () => {
             <Header userData={userData} />
             <div className="container">
                 <div className="my-4">
-                    <h2>Welcome, {userData?.name || "User"}</h2>
+                    <h2>Welcome, {userData?.name ? userData?.name : ` to ${APP_NAME}`}</h2>
                     <hr />
                     <div className="d-flex justify-content-between align-items-center">
                         <h4>My Albums</h4>

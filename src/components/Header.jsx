@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { APP_NAME } from '../constants';
 
 const Header = ({ userData }) => {
-    console.log("userData", userData);
+    // console.log("userData", userData);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -13,7 +14,7 @@ const Header = ({ userData }) => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary px-md-5 bg-success">
             <div className="container-fluid">
-                <Link to={"/dashboard"} className="navbar-brand" href="#">kaviosPix</Link>
+                <Link to={"/dashboard"} className="navbar-brand" href="#">{APP_NAME}</Link>
                 <div className="dropdown text-end">
                     <a
                         href="#"
