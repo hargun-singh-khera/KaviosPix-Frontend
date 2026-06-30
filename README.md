@@ -70,20 +70,10 @@ VITE_SERVER_BASE_URL=http://localhost:3000
 - React Router
 - Bootstrap
 - Bootstrap Icons
+- React Hot Toast
 - Axios
 - React Select
-- React Hot Toast
-
-### Backend
-
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT Authentication
-- Google OAuth
-- Multer
-- Cloudinary
+- JWT authentication
 
 ---
 
