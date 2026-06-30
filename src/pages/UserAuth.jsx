@@ -103,7 +103,7 @@ const UserAuth = () => {
                     </div>
 
                     <h1 className="fw-bold mb-2" style={{ color: '#ffffff', fontSize: '2rem', letterSpacing: '-0.5px' }}>
-                        KaviosPix
+                        Albumix
                     </h1>
                     <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', margin: 0 }}>
                         Turn ideas into stunning visuals.
